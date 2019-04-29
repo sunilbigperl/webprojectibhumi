@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8 ]>
 <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]>
@@ -25,7 +25,6 @@
     <![endif]-->
 
     <script src="assets/js/modernizr.custom.js"></script>
-
 
 
 
@@ -76,6 +75,10 @@ input.chk-btn:checked + label {
    /* height: 300px;
     width:300px;*/
 }*/
+
+ h3{
+    display: inline;
+}
 
 
     </style>
@@ -429,7 +432,7 @@ input.chk-btn:checked + label {
         </div>
         <div class="col-md-6 " style=" overflow: scroll;">
             <br>
-       <div id="campground_info"></div>
+       <div class="text-inline" id="campground_info"></div>
     
             <div class="ct-gallery ct-portfolio-container ct-portfolio-masonry ct-portfolio-masonry--col3"  >
                 <div class="row" >
@@ -437,10 +440,10 @@ input.chk-btn:checked + label {
                          <article class="ct-gallery-item1 ct-portfolio-item fresh" >
 
                     <div class="ct-portfolio-item-outer">
-                        <div class="ct-portfolio-item-media">
-                            <figure>
-                                <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/></a>
-                            </figure>
+                        <div class="ct-portfolio-item-media" id="ct-portfolio-item-media">
+                           <!--  <figure>
+                                <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt="https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4"/></a>
+                            </figure> -->
                         </div>
 
                         <div class="ct-portfolio-item-wrapper">
@@ -463,7 +466,9 @@ input.chk-btn:checked + label {
 
 
                     </div>
-                    <div class="col-md-6">
+                  
+
+                  <!--   <div class="col-md-6">
                                 
                           <article class="ct-gallery-item1 ct-portfolio-item fresh" >
 
@@ -554,7 +559,7 @@ input.chk-btn:checked + label {
                             </div>
                         </article>
 
-                    </div>
+                    </div> -->
                 </div>
                
 
@@ -682,34 +687,52 @@ function loadMarkers() {
   console.log('creating markers')
   var infoWindow = new google.maps.InfoWindow()
    // geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
-  geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store2'
+  geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
   $.getJSON(geojson_url, function(result) {
       // Post select to url.
       data = result['features']
-      console.log(result);
+     //console.log(result);
       $.each(data, function(key, val) {
         var point = new google.maps.LatLng(
-                parseFloat(val['geometry']['coordinates'][1]),
-                parseFloat(val['geometry']['coordinates'][0]));
+        parseFloat(val['geometry']['coordinates'][1]),
+        parseFloat(val['geometry']['coordinates'][0]));
         var titleText = val['properties']['title']
         var descriptionText = val['properties']['description']
+        var productSize = val['properties']['marker-size']
         var productText = val['properties']['product-name']
         var productImg = val['properties']['product-img']
+        var text = val['properties']['text']
+
         var marker = new google.maps.Marker({
           position: point,
           title: titleText,
           map: map,
           properties: val['properties']
          });
+        // console.log(text);
+        // $.each(text, function( index, value ) {
+        //   alert( index + ": " + value );
+        // });
 
-        var markerInfo = "<div><span>Seller Name :</span><h3>" + titleText + "</h3><span>Store Name:</span><h3> " + descriptionText + "</h3></div>"
-        //ver productInfo ="ct-portfolio-item-media"
+        var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h5 style='display:inline;padding:10px'>" + titleText + "</h5></div><div class='d-inline'><span>Store Name:</span><h5 style='display:inline;padding:10px'> " + descriptionText + "</h5></div>"
+       var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
+
+//<a href='single-product.html'><img src=" + productImg  +" alt='+ productText+'/>
+           // <div class="ct-portfolio-item-media">
+           //                          <figure>
+           //                              <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/>
+           //                          </figure>
+           //                      </div>
+           //  ct-portfolio-item-media
+
 
         marker.addListener('click', function() {
            $('#campground_info').html(markerInfo);
            $('.ct-gallery').css("display", "block");
+          $('#ct-portfolio-item-media').html(productIMG);
+
           //   $('#container1').removeClass('expand1');
-          // $('#container1').addClass('expand');
+          // $('#ct-portfolio-item-media').addClass('expand');
         });
         markers.push(marker)
         
