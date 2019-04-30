@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8 ]>
 <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]>
@@ -12,8 +12,6 @@
     <meta name="author" content="CreateIT">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
-
-
 
 
 
@@ -81,7 +79,38 @@ input.chk-btn:checked + label {
  h3{
     display: inline;
 }
+.ct-portfolio-item-outer {
+    padding: 20px 10px 30px;
+    margin: 10px 20px 30px;
+    border: 3px solid transparent;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
 
+.ct-portfolio-item-outer:hover {
+    border: 3px solid #9cdf3a;
+}
+/*.ct-portfolio-container .ct-portfolio-item:hover .ct-portfolio-item-outer {
+    border-color: #9cdf3a;
+}*/
+.ct-portfolio-item-media {
+    margin-bottom: 30px;
+}
+ .ct-portfolio-item-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+ .ct-portfolio-item-title a:hover span {
+    color: #9cdf3a;
+    }
+ .ct-portfolio-item-title a {
+    text-decoration: none;
+}
+.btn.ct-btn-image.btn-warning {
+    background-image: url(../images/btnWarningBG.png);
+}
 
     </style>
 
@@ -413,9 +442,28 @@ input.chk-btn:checked + label {
 
 
 <div class="container-fluyid">
-    <div class="row" >
-        <div class="col-md-6">
-            <div id="buttons">
+    <div class="row" style="padding: 20px;">
+        <div class="col-md-6" >
+           <!--  <div id="buttons">
+  
+              <input type="checkbox" name="filter" id="veg" class='chk-btn'>
+              <label for='veg'>VEG</label>
+              
+              <input type="checkbox" name="filter" id="fruits" class='chk-btn'>
+              <label for='fruits'>FRUITS</label>
+              
+              <input type="checkbox" name="filter" id="dairy" class='chk-btn'>
+              <label for='dairy'>Frozen ITEM</label>
+              <br>
+            </div> -->
+            <br>
+            <div id="map">
+                
+         </div>
+        </div>
+        <div class="col-md-6 " style="  height: 510px;overflow: scroll;">
+
+             <div id="buttons">
   
               <input type="checkbox" name="filter" id="veg" class='chk-btn'>
               <label for='veg'>VEG</label>
@@ -428,19 +476,52 @@ input.chk-btn:checked + label {
               <br>
             </div>
             <br>
-            <div id="map">
-                
-         </div>
-        </div>
-        <div class="col-md-6 " style=" overflow: scroll;">
-            <br>
-       <div class="text-inline" id="campground_info"></div>
-    
+       <div class="text-inline" id="campground_info" style="padding: 15px"></div>
+       <div class='row'>
+        <!-- <div class='col-md-6'> -->
+             <div class="test123" id="test123">
+        <!-- </div> -->
+    </div>
+   
+        <!-- <div class="row">
+             <div class="col-md-6">
+                         <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+
+                    <div class="ct-portfolio-item-outer">
+                        <div class="ct-portfolio-item-media" id="ct-portfolio-item-media">
+                            <figure>
+                                <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt="https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4"/></a>
+                            </figure>
+                        </div>
+
+                        <div class="ct-portfolio-item-wrapper">
+                            <div class="ct-portfolio-item-inner">
+                                <section>
+                                    <div class="ct-portfolio-item-title">
+                                        <a href="single-product.html">
+                                            <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+                    </div>
+                  
+        </div> -->
+        
+    </div>
             <div class="ct-gallery ct-portfolio-container ct-portfolio-masonry ct-portfolio-masonry--col3"  >
                 <div class="row" >
                     <div class="col-md-6">
-                         <article class="ct-gallery-item1 ct-portfolio-item fresh" >
-
+                <article class="ct-gallery-item1 ct-portfolio-item fresh" >
                     <div class="ct-portfolio-item-outer">
                         <div class="ct-portfolio-item-media" id="ct-portfolio-item-media">
                            <!--  <figure>
@@ -473,14 +554,12 @@ input.chk-btn:checked + label {
                   <!--   <div class="col-md-6">
                                 
                           <article class="ct-gallery-item1 ct-portfolio-item fresh" >
-
                             <div class="ct-portfolio-item-outer">
                                 <div class="ct-portfolio-item-media">
                                     <figure>
-                                        <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/></a>
+                                        <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt=""/></a>
                                     </figure>
                                 </div>
-
                                 <div class="ct-portfolio-item-wrapper">
                                     <div class="ct-portfolio-item-inner">
                                         <section>
@@ -489,7 +568,6 @@ input.chk-btn:checked + label {
                                                     <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
                                                 </a>
                                             </div>
-
                                             <div class="text-center">
                                                 <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
                                             </div>
@@ -688,12 +766,12 @@ var map_filter = function(id_val) {
 function loadMarkers() {
   console.log('creating markers')
   var infoWindow = new google.maps.InfoWindow()
-   // geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
+// geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
   geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
   $.getJSON(geojson_url, function(result) {
       // Post select to url.
       data = result['features']
-     //console.log(result);
+     console.log(result);
       $.each(data, function(key, val) {
         var point = new google.maps.LatLng(
         parseFloat(val['geometry']['coordinates'][1]),
@@ -703,6 +781,7 @@ function loadMarkers() {
         var productSize = val['properties']['marker-size']
         var productText = val['properties']['product-name']
         var productImg = val['properties']['product-img']
+        var productName = val['properties']['product-name']
         var text = val['properties']['text']
 
         var marker = new google.maps.Marker({
@@ -716,7 +795,12 @@ function loadMarkers() {
         //   alert( index + ": " + value );
         // });
 
-        var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h5 style='display:inline;padding:10px'>" + titleText + "</h5></div><div class='d-inline'><span>Store Name:</span><h5 style='display:inline;padding:10px'> " + descriptionText + "</h5></div>"
+        $(document).ready(function() {
+     // alert("document ready occurred!");
+      $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
+        });
+
+        var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h6 style='display:inline;padding:10px'>" + titleText + "</h6></div><div class='d-inline'><span>Store Name:</span><h6 style='display:inline;padding:10px'> " + descriptionText + "</h6></div>"
        var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
 
 //<a href='single-product.html'><img src=" + productImg  +" alt='+ productText+'/>
@@ -731,6 +815,7 @@ function loadMarkers() {
         marker.addListener('click', function() {
            $('#campground_info').html(markerInfo);
            $('.ct-gallery').css("display", "block");
+           $('#test123').css("display", "none");
           $('#ct-portfolio-item-media').html(productIMG);
 
           //   $('#container1').removeClass('expand1');
