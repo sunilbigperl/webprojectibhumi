@@ -1,0 +1,927 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Farm Fresh is HTML5 template, dedicated for farm owners, organic food distributors and green, eco, veggie food lovers.">
+    <meta name="keywords" content="farm, organic template, html5 eco template" />
+    <meta name="author" content="CreateIT">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!--[if lt IE 9]>
+    <script src="assets/bootstrap/js/html5shiv.min.js"></script>
+    <script src="assets/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="assets/js/modernizr.custom.js"></script>
+
+
+
+    <style type="text/css">
+        
+        #map {
+  width: 100%;
+  height: 500px;
+}
+
+/* chk-btn CSS from
+http://stackoverflow.com/questions/30100978/how-to-make-a-check-button-hidden-checkbox-with-label-as-a-button-css-only
+*/
+
+input.chk-btn {
+  display: none;
+}
+input.chk-btn + label {
+  border: 1px solid grey;
+  background: ghoswhite;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+ 
+}
+input.chk-btn:not(:checked) + label:hover {
+  box-shadow: 0px 1px 3px;
+  
+}
+input.chk-btn + label:active,
+input.chk-btn:checked + label {
+  box-shadow: 0px 0px 3px inset;
+  background: #8cc472;
+  
+}
+/*.ct-gallery-item{
+    position: absolute;
+}*/
+.ct-portfolio-container.ct-portfolio-masonry.ct-portfolio-masonry--col3 .ct-portfolio-item {
+    width: 81.3333%;
+}
+.ct-gallery{
+    display: none;
+}
+/*.expand{
+    display: block;
+    height: 900px;
+   /* height: 300px;
+    width:300px;*/
+}*/
+
+ h3{
+    display: inline;
+}
+.ct-portfolio-item-outer {
+    padding: 20px 10px 30px;
+    margin: 10px 20px 30px;
+    border: 3px solid transparent;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.ct-portfolio-item-outer:hover {
+    border: 3px solid #9cdf3a;
+}
+/*.ct-portfolio-container .ct-portfolio-item:hover .ct-portfolio-item-outer {
+    border-color: #9cdf3a;
+}*/
+.ct-portfolio-item-media {
+    margin-bottom: 30px;
+}
+ .ct-portfolio-item-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+ .ct-portfolio-item-title a:hover span {
+    color: #9cdf3a;
+    }
+ .ct-portfolio-item-title a {
+    text-decoration: none;
+}
+/* .btn.ct-btn-image.btn-warning {
+    background-image: url(../images/btnWarningBG.png);
+} */
+
+    </style>
+
+
+</head>
+
+
+<body class="cssAnimate">
+<div class="ct-preloader"><div class="ct-preloader-content"></div></div>
+
+
+<div class="ct-navbarMobile ct-u-bgBlack">
+    <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+
+
+<div class="ct-menuMobile">
+    <ul class="ct-menuMobile-navbar list-unstyled ct-u-backgroundDarkGray">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="index.html"><i class="fa fa-fw fa-home"></i>Homepage - Slider</a></li>
+                <li><a href="index2.html"><i class="fa fa-fw fa-home"></i>Homepage - Parallax</a></li>
+                <li><a href="index3.html"><i class="fa fa-fw fa-home"></i>Homepage - Kenburns</a></li>
+                <li><a href="index4.html"><i class="fa fa-fw fa-home"></i>Homepage - Video</a></li>
+
+                <li><a href="index5.html"><i class="fa fa-fw fa-home"></i>Onepage - Slider</a></li>
+                <li><a href="index6.html"><i class="fa fa-fw fa-home"></i>Onepage - Parallax</a></li>
+                <li><a href="index7.html"><i class="fa fa-fw fa-home"></i>Onepage - Kenburns</a></li>
+                <li><a href="index8.html"><i class="fa fa-fw fa-home"></i>Onepage - Video</a></li>
+
+
+
+                <li><a href="index9.html"><i class="fa fa-fw fa-home"></i>Scroll Up Menu</a></li>
+                <li><a href="index10.html"><i class="fa fa-fw fa-home"></i>Scroll Up Top Bar</a></li>
+                <li><a href="index11.html"><i class="fa fa-fw fa-home"></i>Scroll Up Both</a></li>
+                <li><a href="index12.html"><i class="fa fa-fw fa-home"></i>Fixed Top Bar</a></li>
+                <li><a href="index13.html"><i class="fa fa-fw fa-home"></i>Fixed Menu</a></li>
+                <li><a href="index14.html"><i class="fa fa-fw fa-home"></i>Fixed Both</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Farm Fresh <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="single-event.html">Single Event</a></li>
+                <li><a href="tours-and-events.html">Tours & Events</a></li>
+                <li><a href="single-person.html">Member Page</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="what-we-grow.html">What We Grow</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Our Products <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="single-product.html">Single Product</a></li>
+                <li class="active"><a href="our-products.html">Our Products</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Our Distributor <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="our-distributors.html">Our Distributors</a></li>
+<li><a href="our-distributors2.html">Our Distributors 2</a></li>
+                <li><a href="our-suppliers.html">Our Suppliers</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a>Features <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="features-grid.html"><i class="fa fa-fw fa-th"></i> Grid System</a></li>
+                <li><a href="features-typography.html"><i class="fa fa-fw fa-font"></i> Typography</a></li>
+                <li><a href="features-buttons.html"><i class="fa fa-fw fa-link"></i> Buttons</a></li>
+                <li><a href="features-forms.html"><i class="fa fa-fw fa-align-justify"></i> Forms</a></li>
+                <li><a href="features-tables.html"><i class="fa fa-fw fa-table"></i> Tables</a></li>
+
+                <li><a href="features-p-tables.html"><i class="fa fa-fw fa-money"></i> Pricing Tables</a></li>
+                <li><a href="features-iconbox.html"><i class="fa fa-fw fa-th-large"></i> Icon Boxes</a></li>
+                <li><a href="features-personbox.html"><i class="fa fa-fw fa-users"></i> Person Boxes</a></li>
+                <li><a href="features-counters.html"><i class="fa fa-fw fa-plus"></i> Counters</a></li>
+                <li><a href="features-toggables.html"><i class="fa fa-fw fa-toggle-on"></i> Toggables</a></li>
+
+                <li><a href="features-charts.html"><i class="fa fa-fw fa-area-chart"></i> Charts</a></li>
+                <li><a href="features-p-bar.html"><i class="fa fa-fw fa-bars"></i> Progress Bars</a></li>
+                <li><a href="features-p-icons.html"><i class="fa fa-fw fa-star-half-full"></i> Progress Icons</a></li>
+                <li><a href="features-lists.html"><i class="fa fa-fw fa-list"></i> Lists Simple</a></li>
+                <li><a href="features-lists2.html"><i class="fa fa-fw fa-list"></i> Lists Icons</a></li>
+
+                <li><a href="features-slider.html"><i class="fa fa-fw fa-navicon"></i> Sliders</a></li>
+                <li><a href="features-m-sections.html"><i class="fa fa-fw fa-play"></i> Media Sections</a></li>
+                <li><a href="features-404.html"><i class="fa fa-exclamation-triangle"></i> 404 Page</a></li>
+                <li><a href="faq.html"><i class="fa fa-question"></i> FAQ</a></li>
+                <li><a href="maintenance.html"><i class="fa fa-pause"></i> Maintenance</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gallery <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="gallery.html">Gallery - Type 1</a></li>
+                <li><a href="gallery2.html">Gallery - Type 2</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="single-post.html">Single Post</a></li>
+                <li><a href="blog-list.html">Blog List</a></li>
+                <li><a href="blog-masonry.html">Blog Masonry</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+</div>
+
+<div id="ct-js-wrapper">
+<header class="ct-mainHeader">
+
+<div class="ct-topBar topBar--type1">
+    <div class="navbar navbar-default">
+        <div class="container ct-navbar-container">
+            <p class="navbar-text navbar-left"><i class="fa fa-phone"></i> Support: (012) 345-6789</p>
+
+            <div class="navbar-block navbar-right">
+                <div class="navbar-block-inner">
+                    <ul class="socialicons socialicons--image">
+                        <li>
+                            <a href="https://www.facebook.com/createITpl" data-toggle="tooltip" data-placement="bottom" title data-original-title="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://twitter.com/createitpl" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title data-original-title="LinkedIn">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="navbar-text navbar-right">Welcome to Our Organic Shop!</p>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar--type1 yamm">
+
+    <div class="container ct-navbar-container">
+
+        <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+            </div><!-- /input-group -->
+        </form>
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                 <img alt="Brand" src="assets/images/content/ibhumi_logo.png" />
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-left ct-navbar--fadeInLeft">
+            <li class="dropdown yamm-sm">
+                <a href="index.html" class="dropdown-toggle">Home</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="yamm-outer">
+                        <div class="yamm-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html"><i class="fa fa-fw fa-home"></i>Homepage - Slider</a></li>
+                                        <li><a href="index2.html"><i class="fa fa-fw fa-home"></i>Homepage - Parallax</a></li>
+                                        <li><a href="index3.html"><i class="fa fa-fw fa-home"></i>Homepage - Kenburns</a></li>
+                                        <li><a href="index4.html"><i class="fa fa-fw fa-home"></i>Homepage - Video</a></li>
+                                    </ul>
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index9.html"><i class="fa fa-fw fa-home"></i>Scroll Up Menu</a></li>
+                                        <li><a href="index10.html"><i class="fa fa-fw fa-home"></i>Scroll Up Top Bar</a></li>
+                                        <li><a href="index11.html"><i class="fa fa-fw fa-home"></i>Scroll Up Both</a></li>
+                                        <li><a href="index12.html"><i class="fa fa-fw fa-home"></i>Fixed Top Bar</a></li>
+                                        <li><a href="index13.html"><i class="fa fa-fw fa-home"></i>Fixed Menu</a></li>
+                                        <li><a href="index14.html"><i class="fa fa-fw fa-home"></i>Fixed Both</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled">
+                                        <li><a href="index5.html"><i class="fa fa-fw fa-home"></i>Onepage - Slider</a></li>
+                                        <li><a href="index6.html"><i class="fa fa-fw fa-home"></i>Onepage - Parallax</a></li>
+                                        <li><a href="index7.html"><i class="fa fa-fw fa-home"></i>Onepage - Kenburns</a></li>
+                                        <li><a href="index8.html"><i class="fa fa-fw fa-home"></i>Onepage - Video</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="about-us.html" class="dropdown-toggle">About ibhumi</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="single-event.html">Single Event</a></li>
+                    <li><a href="tours-and-events.html">Tours & Events</a></li>
+                    <li><a href="single-person.html">Member Page</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="what-we-grow.html">What We Grow</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown active">
+                <a href="single-product.html" class="dropdown-toggle">Our Products</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="single-product.html">Single Product</a></li>
+                    <li class="active"><a href="our-products.html">Our Products</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="our-distributors.html" class="dropdown-toggle">Our Distributor</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="our-distributors.html">Our Distributors</a></li>
+<li><a href="our-distributors2.html">Our Distributors 2</a></li>
+                    <li><a href="our-suppliers.html">Our Suppliers</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown yamm-fw">
+                <a href="features-grid.html" class="dropdown-toggle">Features</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="yamm-outer">
+                        <div class="yamm-content">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ul class="list-unstyled">
+                                        <li><a href="features-grid.html"><i class="fa fa-fw fa-th"></i> Grid System</a></li>
+                                        <li><a href="features-typography.html"><i class="fa fa-fw fa-font"></i> Typography</a></li>
+                                        <li><a href="features-buttons.html"><i class="fa fa-fw fa-link"></i> Buttons</a></li>
+                                        <li><a href="features-forms.html"><i class="fa fa-fw fa-align-justify"></i> Forms</a></li>
+                                        <li><a href="features-tables.html"><i class="fa fa-fw fa-table"></i> Tables</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <ul class="list-unstyled">
+                                        <li><a href="features-p-tables.html"><i class="fa fa-fw fa-money"></i> Pricing Tables</a></li>
+                                        <li><a href="features-iconbox.html"><i class="fa fa-fw fa-th-large"></i> Icon Boxes</a></li>
+                                        <li><a href="features-personbox.html"><i class="fa fa-fw fa-users"></i> Person Boxes</a></li>
+                                        <li><a href="features-counters.html"><i class="fa fa-fw fa-plus"></i> Counters</a></li>
+                                        <li><a href="features-toggables.html"><i class="fa fa-fw fa-toggle-on"></i> Toggables</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <ul class="list-unstyled">
+                                        <li><a href="features-charts.html"><i class="fa fa-fw fa-area-chart"></i> Charts</a></li>
+                                        <li><a href="features-p-bar.html"><i class="fa fa-fw fa-bars"></i> Progress Bars</a></li>
+                                        <li><a href="features-p-icons.html"><i class="fa fa-fw fa-star-half-full"></i> Progress Icons</a></li>
+                                        <li><a href="features-lists.html"><i class="fa fa-fw fa-list"></i> Lists Simple</a></li>
+                                        <li><a href="features-lists2.html"><i class="fa fa-fw fa-list"></i> Lists Icons</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <ul class="list-unstyled">
+                                        <li><a href="features-slider.html"><i class="fa fa-fw fa-navicon"></i> Sliders</a></li>
+                                        <li><a href="features-m-sections.html"><i class="fa fa-fw fa-play"></i> Media Sections</a></li>
+                                        <li><a href="features-404.html"><i class="fa fa-exclamation-triangle"></i> 404 Page</a></li>
+                                        <li><a href="faq.html"><i class="fa fa-question"></i> FAQ</a></li>
+                                        <li><a href="maintenance.html"><i class="fa fa-pause"></i> Maintenance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="gallery.html#" class="dropdown-toggle">Gallery</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="gallery.html">Gallery - Type 1</a></li>
+                    <li><a href="gallery2.html">Gallery - Type 2</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown ct-dropdownRight-lg">
+                <a href="single-post.html" class="dropdown-toggle">Blog</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="single-post.html">Single Post</a></li>
+                    <li><a href="blog-list.html">Blog List</a></li>
+                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+
+    </div>
+</nav>
+</header>
+
+<main>
+
+
+
+
+<div class="container-fluyid">
+    <div class="row" style="padding: 20px;">
+        <div class="col-md-6" >
+           <!--  <div id="buttons">
+  
+              <input type="checkbox" name="filter" id="veg" class='chk-btn'>
+              <label for='veg'>VEG</label>
+              
+              <input type="checkbox" name="filter" id="fruits" class='chk-btn'>
+              <label for='fruits'>FRUITS</label>
+              
+              <input type="checkbox" name="filter" id="dairy" class='chk-btn'>
+              <label for='dairy'>Frozen ITEM</label>
+              <br>
+            </div> -->
+            <br>
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+            <div id="map">
+                
+         </div>
+        </div>
+        <div class="col-md-6" style="  height: 510px;overflow: scroll;">
+
+             <div id="buttons">
+  
+              <input type="checkbox" name="filter" id="veg" class='chk-btn'>
+              <label for='veg'>VEG</label>
+              
+              <input type="checkbox" name="filter" id="fruits" class='chk-btn'>
+              <label for='fruits'>FRUITS</label>
+              
+              <input type="checkbox" name="filter" id="dairy" class='chk-btn'>
+              <label for='dairy'>DAIRY</label>
+              <br>
+            </div>
+            <br>
+       <div class="text-inline" id="campground_info" style="padding: 15px"></div>
+       <div class='row'>
+        <!-- <div class='col-md-6'> -->
+             <div class="test123" id="test123">
+        <!-- </div> -->
+    </div>
+   
+        <!-- <div class="row">
+             <div class="col-md-6">
+                         <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+
+                    <div class="ct-portfolio-item-outer">
+                        <div class="ct-portfolio-item-media" id="ct-portfolio-item-media">
+                            <figure>
+                                <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt="https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4"/></a>
+                            </figure>
+                        </div>
+
+                        <div class="ct-portfolio-item-wrapper">
+                            <div class="ct-portfolio-item-inner">
+                                <section>
+                                    <div class="ct-portfolio-item-title">
+                                        <a href="single-product.html">
+                                            <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+                    </div>
+                  
+        </div> -->
+        
+    </div>
+            <div class="ct-gallery ct-portfolio-container ct-portfolio-masonry ct-portfolio-masonry--col3"  >
+                <div class="row" >
+                    <div class="col-md-6">
+                <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+                    <div class="ct-portfolio-item-outer">
+                        <div class="ct-portfolio-item-media" id="ct-portfolio-item-media">
+                           <!--  <figure>
+                                <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt="https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4"/></a>
+                            </figure> -->
+                        </div>
+
+                        <div class="ct-portfolio-item-wrapper">
+                            <div class="ct-portfolio-item-inner">
+                                <section>
+                                    <div class="ct-portfolio-item-title">
+                                        <a href="single-product.html">
+                                            <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                        </a>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+                    </div>
+                  
+
+                  <!--   <div class="col-md-6">
+                                
+                          <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+                            <div class="ct-portfolio-item-outer">
+                                <div class="ct-portfolio-item-media">
+                                    <figure>
+                                        <a href="single-product.html"><img src="http://farmfresh.html.themeplayers.net/assets/images/demo-content/galleryitem4.png" alt=""/></a>
+                                    </figure>
+                                </div>
+                                <div class="ct-portfolio-item-wrapper">
+                                    <div class="ct-portfolio-item-inner">
+                                        <section>
+                                            <div class="ct-portfolio-item-title">
+                                                <a href="single-product.html">
+                                                    <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                     <div class="col-md-6">
+                                
+                          <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+
+                            <div class="ct-portfolio-item-outer">
+                                <div class="ct-portfolio-item-media">
+                                    <figure>
+                                        <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/></a>
+                                    </figure>
+                                </div>
+
+                                <div class="ct-portfolio-item-wrapper">
+                                    <div class="ct-portfolio-item-inner">
+                                        <section>
+                                            <div class="ct-portfolio-item-title">
+                                                <a href="single-product.html">
+                                                    <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="text-center">
+                                                <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                     <div class="col-md-6">
+                                
+                          <article class="ct-gallery-item1 ct-portfolio-item fresh" >
+
+                            <div class="ct-portfolio-item-outer">
+                                <div class="ct-portfolio-item-media">
+                                    <figure>
+                                        <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/></a>
+                                    </figure>
+                                </div>
+
+                                <div class="ct-portfolio-item-wrapper">
+                                    <div class="ct-portfolio-item-inner">
+                                        <section>
+                                            <div class="ct-portfolio-item-title">
+                                                <a href="single-product.html">
+                                                    <h6><span>Bunch Of Radishes In A Wooden Box</span></h6>
+                                                </a>
+                                            </div>
+
+                                            <div class="text-center">
+                                                <a href="single-product.html" class="btn ct-btn-image btn-warning"><span><i class="fa fa-book"></i> Read More</span></a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div> -->
+                </div>
+               
+
+               
+                 
+
+            </div>
+        </div>
+  
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="ct-postFooter">
+        <div class="container">
+            <div class="ct-u-displayTableVertical">
+                <div class="ct-u-displayTableCell text-left">
+                    <p class="ct-u-marginBoth0 ct-u-colorWhite">© 2015 Organic Farm Fresh. All Rights Reserved.</p>
+                </div>
+
+                <div class="ct-u-displayTableCell text-right">
+                    <ul class="list-unstyled list-inline ct-u-marginBoth0">
+                        <li><img src="assets/images/content/cart1.jpg" alt=""/></li>
+                        <li><img src="assets/images/content/cart2.jpg" alt=""/></li>
+                        <li><img src="assets/images/content/cart3.jpg" alt=""/></li>
+                        <li><img src="assets/images/content/cart4.jpg" alt=""/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+<a href="#" class="ct-js-btnScrollUp"><i class="fa fa-angle-up"></i></a>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/dependencies.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="assets/form/js/contact-form.js"></script>
+
+<script src="assets/plugins/slick/slick.min.js"></script>
+<script src="assets/plugins/slick/init.js"></script>
+
+<script src="assets/js/ct-mediaSection/jquery.stellar.min.js"></script>
+<script src="assets/js/ct-mediaSection/init.js"></script>
+
+<script src="assets/js/portfolio/jquery.isotope.min.js"></script>
+<script src="assets/js/portfolio/imagesloaded.js"></script>
+<script src="assets/js/portfolio/init.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTBf122GEs4W5P3aJwfPMZ9OkMyRubIBk&libraries=places&callback=initMap">
+    </script>
+
+    <script type="text/javascript">
+        
+ var map
+ var markers = []
+ 
+
+
+// start out with filter features set to false, so no filtering happens by default
+var filters = {veg:false, fruits:false, dairy:false}
+
+$(function () {
+    $('input[name=filter]').change(function (e) {
+     map_filter(this.id);
+      filter_markers()
+  });
+
+
+})
+
+var get_set_options = function() {
+  ret_array = []
+  for (option in filters) {
+    if (filters[option]) {
+      ret_array.push(option)
+    }
+  }
+  return ret_array;
+}
+
+var filter_markers = function() {  
+  set_filters = get_set_options()
+  
+  // for each marker, check to see if all required options are set
+  for (i = 0; i < markers.length; i++) {
+    marker = markers[i];
+
+    // start the filter check assuming the marker will be displayed
+    // if any of the required features are missing, set 'keep' to false
+    // to discard this marker
+    keep=true
+    for (opt=0; opt<set_filters.length; opt++) {
+      if (!marker.properties[set_filters[opt]]) {
+        keep = false;
+      }
+    }
+    marker.setVisible(keep)
+  }
+}
+
+var map_filter = function(id_val) {
+   if (filters[id_val]) 
+      filters[id_val] = false
+   else
+      filters[id_val] = true
+}
+
+
+// after the geojson is loaded, iterate through the map data to create markers
+// and add the pop up (info) windows
+function loadMarkers() {
+  console.log('creating markers')
+  var infoWindow = new google.maps.InfoWindow()
+// geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
+  geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
+  $.getJSON(geojson_url, function(result) {
+      // Post select to url.
+      data = result['features']
+    // console.log(result);
+      $.each(data, function(key, val) {
+        var point = new google.maps.LatLng(
+        parseFloat(val['geometry']['coordinates'][1]),
+        parseFloat(val['geometry']['coordinates'][0]));
+        var titleText = val['properties']['title']
+        var descriptionText = val['properties']['description']
+        var productSize = val['properties']['marker-size']
+        var productText = val['properties']['product-name']
+        var productImg = val['properties']['product-img']
+        var productName = val['properties']['product-name']
+        var text = val['properties']['text']
+        var mapIcon = val['properties']['map-icon']
+
+       // // var image = 'https://cdn1.iconfinder.com/data/icons/vegetables-57/200/Lettuce_Vegetables_food-32.png';
+       //   // var image = 'https://cdn3.iconfinder.com/data/icons/food-pyramid-nutrition/512/fruits-32.png';
+       //   var image = 'https://cdn0.iconfinder.com/data/icons/fruits-vegetables-5/383/vegetable-fruit-food_12-32.png';
+
+        var marker = new google.maps.Marker({
+          position: point,
+          title: titleText,
+          map: map,
+          properties: val['properties'],
+          icon: mapIcon
+         });
+        // console.log(text);
+        // $.each(text, function( index, value ) {
+        //   alert( index + ": " + value );
+        // });
+
+        $(document).ready(function() {
+     // alert("document ready occurred!");
+      $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
+        });
+
+        var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h6 style='display:inline;padding:10px'>" + titleText + "</h6></div><div class='d-inline'><span>Store Name:</span><h6 style='display:inline;padding:10px'> " + descriptionText + "</h6></div>"
+       var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
+
+//<a href='single-product.html'><img src=" + productImg  +" alt='+ productText+'/>
+           // <div class="ct-portfolio-item-media">
+           //                          <figure>
+           //                              <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/>
+           //                          </figure>
+           //                      </div>
+           //  ct-portfolio-item-media
+
+
+        marker.addListener('click', function() {
+           $('#campground_info').html(markerInfo);
+           $('.ct-gallery').css("display", "block");
+           $('#test123').css("display", "none");
+          $('#ct-portfolio-item-media').html(productIMG);
+
+          //   $('#container1').removeClass('expand1');
+          // $('#ct-portfolio-item-media').addClass('expand');
+        });
+        markers.push(marker)
+        
+      });
+  });
+}
+
+
+//13.027569, 77.536105
+
+function initMap() {
+    map_options = {
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: {lat: 13.027569, lng:  77.536105}
+    }
+    
+    map_document = document.getElementById('map')
+    map = new google.maps.Map(map_document,map_options);
+
+
+
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+    loadMarkers()
+ 
+
+}
+//var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+// google.maps.event.addDomListener(window, 'load', initMap);
+
+// Resources
+    </script>
+   
+
+
+</body>
+</html>
