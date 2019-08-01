@@ -279,7 +279,7 @@ input.chk-btn:checked + label {
 
         <form class="navbar-form navbar-right" role="search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" class="form-control" id="pac-input" placeholder="Search for...">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                         </span>
@@ -701,157 +701,228 @@ input.chk-btn:checked + label {
 <script src="assets/js/main.js"></script>
 
 
-
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTBf122GEs4W5P3aJwfPMZ9OkMyRubIBk&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYClQZMSKFfNKFVH1aNc1qnxlz9e9UBXY&libraries=places&callback=initMap">
     </script>
 
-    <script type="text/javascript">
+<script type="text/javascript">
         
- var map
- var markers = []
-
-// start out with filter features set to false, so no filtering happens by default
-var filters = {veg:false, fruits:false, dairy:false}
-
-$(function () {
-    $('input[name=filter]').change(function (e) {
-     map_filter(this.id);
-      filter_markers()
-  });
-
-
-})
-
-var get_set_options = function() {
-  ret_array = []
-  for (option in filters) {
-    if (filters[option]) {
-      ret_array.push(option)
-    }
-  }
-  return ret_array;
-}
-
-var filter_markers = function() {  
-  set_filters = get_set_options()
-  
-  // for each marker, check to see if all required options are set
-  for (i = 0; i < markers.length; i++) {
-    marker = markers[i];
-
-    // start the filter check assuming the marker will be displayed
-    // if any of the required features are missing, set 'keep' to false
-    // to discard this marker
-    keep=true
-    for (opt=0; opt<set_filters.length; opt++) {
-      if (!marker.properties[set_filters[opt]]) {
-        keep = false;
-      }
-    }
-    marker.setVisible(keep)
-  }
-}
-
-var map_filter = function(id_val) {
-   if (filters[id_val]) 
-      filters[id_val] = false
-   else
-      filters[id_val] = true
-}
-
-
-// after the geojson is loaded, iterate through the map data to create markers
-// and add the pop up (info) windows
-function loadMarkers() {
-  console.log('creating markers')
-  var infoWindow = new google.maps.InfoWindow()
-// geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
-  geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
-  $.getJSON(geojson_url, function(result) {
-      // Post select to url.
-      data = result['features']
-     console.log(result);
-      $.each(data, function(key, val) {
-        var point = new google.maps.LatLng(
-        parseFloat(val['geometry']['coordinates'][1]),
-        parseFloat(val['geometry']['coordinates'][0]));
-        var titleText = val['properties']['title']
-        var descriptionText = val['properties']['description']
-        var productSize = val['properties']['marker-size']
-        var productText = val['properties']['product-name']
-        var productImg = val['properties']['product-img']
-        var productName = val['properties']['product-name']
-        var text = val['properties']['text']
-        var mapIcon = val['properties']['map-icon']
-
-       // // var image = 'https://cdn1.iconfinder.com/data/icons/vegetables-57/200/Lettuce_Vegetables_food-32.png';
-       //   // var image = 'https://cdn3.iconfinder.com/data/icons/food-pyramid-nutrition/512/fruits-32.png';
-       //   var image = 'https://cdn0.iconfinder.com/data/icons/fruits-vegetables-5/383/vegetable-fruit-food_12-32.png';
-
-        var marker = new google.maps.Marker({
-          position: point,
-          title: titleText,
-          map: map,
-          properties: val['properties'],
-          icon: mapIcon
-         });
-        // console.log(text);
-        // $.each(text, function( index, value ) {
-        //   alert( index + ": " + value );
-        // });
-
-        $(document).ready(function() {
-     // alert("document ready occurred!");
-      $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
-        });
-
-        var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h6 style='display:inline;padding:10px'>" + titleText + "</h6></div><div class='d-inline'><span>Store Name:</span><h6 style='display:inline;padding:10px'> " + descriptionText + "</h6></div>"
-       var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
-
-//<a href='single-product.html'><img src=" + productImg  +" alt='+ productText+'/>
-           // <div class="ct-portfolio-item-media">
-           //                          <figure>
-           //                              <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/>
-           //                          </figure>
-           //                      </div>
-           //  ct-portfolio-item-media
-
-
-        marker.addListener('click', function() {
-           $('#campground_info').html(markerInfo);
-           $('.ct-gallery').css("display", "block");
-           $('#test123').css("display", "none");
-          $('#ct-portfolio-item-media').html(productIMG);
-
-          //   $('#container1').removeClass('expand1');
-          // $('#ct-portfolio-item-media').addClass('expand');
-        });
-        markers.push(marker)
-        
-      });
-  });
-}
-
-function initMap() {
-    map_options = {
-      zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      center: {lat: 12.9239, lng:  77.4849}
-    }
+    var map
+    var markers = []
     
-    map_document = document.getElementById('map')
-    map = new google.maps.Map(map_document,map_options);
-    loadMarkers()
- 
-
-}
-//var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
-google.maps.event.addDomListener(window, 'load', initMap);
-
-Resources
-    </script>
+   
+   
+   // start out with filter features set to false, so no filtering happens by default
+   var filters = {veg:false, fruits:false, dairy:false}
+   
+   $(function () {
+       $('input[name=filter]').change(function (e) {
+        map_filter(this.id);
+         filter_markers()
+     });
+   
+   
+   })
+   
+   var get_set_options = function() {
+     ret_array = []
+     for (option in filters) {
+       if (filters[option]) {
+         ret_array.push(option)
+       }
+     }
+     return ret_array;
+   }
+   
+   var filter_markers = function() {  
+     set_filters = get_set_options()
+     
+     // for each marker, check to see if all required options are set
+     for (i = 0; i < markers.length; i++) {
+       marker = markers[i];
+   
+       // start the filter check assuming the marker will be displayed
+       // if any of the required features are missing, set 'keep' to false
+       // to discard this marker
+       keep=true
+       for (opt=0; opt<set_filters.length; opt++) {
+         if (!marker.properties[set_filters[opt]]) {
+           keep = false;
+         }
+       }
+       marker.setVisible(keep)
+     }
+   }
+   
+   var map_filter = function(id_val) {
+      if (filters[id_val]) 
+         filters[id_val] = false
+      else
+         filters[id_val] = true
+   }
+   
+   
+   // after the geojson is loaded, iterate through the map data to create markers
+   // and add the pop up (info) windows
+   function loadMarkers() {
+     console.log('creating markers')
+     var infoWindow = new google.maps.InfoWindow()
+   // geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
+   geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
+     $.getJSON(geojson_url, function(result) {
+         // Post select to url.
+         data = result['features']
+       // console.log(result);
+         $.each(data, function(key, val) {
+           var point = new google.maps.LatLng(
+           parseFloat(val['geometry']['coordinates'][1]),
+           parseFloat(val['geometry']['coordinates'][0]));
+           var titleText = val['properties']['title']
+           var descriptionText = val['properties']['description']
+           var productSize = val['properties']['marker-size']
+           var productText = val['properties']['product-name']
+           var productImg = val['properties']['product-img']
+           var productName = val['properties']['product-name']
+           var text = val['properties']['text']
+           var mapIcon = val['properties']['map-icon']
+   
+          // // var image = 'https://cdn1.iconfinder.com/data/icons/vegetables-57/200/Lettuce_Vegetables_food-32.png';
+          //   // var image = 'https://cdn3.iconfinder.com/data/icons/food-pyramid-nutrition/512/fruits-32.png';
+          //   var image = 'https://cdn0.iconfinder.com/data/icons/fruits-vegetables-5/383/vegetable-fruit-food_12-32.png';
+   
+           var marker = new google.maps.Marker({
+             position: point,
+             title: titleText,
+             map: map,
+             properties: val['properties'],
+             icon: mapIcon
+            });
+           // console.log(text);
+           // $.each(text, function( index, value ) {
+           //   alert( index + ": " + value );
+           // });
+   
+           $(document).ready(function() {
+        // alert("document ready occurred!");
+         $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
+           });
+   
+           var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h6 style='display:inline;padding:10px'>" + titleText + "</h6></div><div class='d-inline'><span>Store Name:</span><h6 style='display:inline;padding:10px'> " + descriptionText + "</h6></div>"
+          var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
+   
+   //<a href='single-product.html'><img src=" + productImg  +" alt='+ productText+'/>
+              // <div class="ct-portfolio-item-media">
+              //                          <figure>
+              //                              <a href="single-product.html"><img src="assets/images/content/galleryitem1.png" alt=""/>
+              //                          </figure>
+              //                      </div>
+              //  ct-portfolio-item-media
+   
+   
+           marker.addListener('click', function() {
+              $('#campground_info').html(markerInfo);
+              $('.ct-gallery').css("display", "block");
+              $('#test123').css("display", "none");
+             $('#ct-portfolio-item-media').html(productIMG);
+   
+             //   $('#container1').removeClass('expand1');
+             // $('#ct-portfolio-item-media').addClass('expand');
+           });
+           markers.push(marker)
+           
+         });
+     });
+   }
+   
+   
+   //13.027569, 77.536105
+   // center: {lat: 13.027569, lng:  77.536105}
+//    77.5390899181366,
+//           13.030512835995598
+   
+   function initMap() {
+       map_options = {
+         zoom: 14,
+         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        
+         center: {lat: 13.030512835995598, lng:   77.5390899181366}
+       }
+       
+       map_document = document.getElementById('map')
+       map = new google.maps.Map(map_document,map_options);
+   
+   
+   
+   
+       // Create the search box and link it to the UI element.
+       var input = document.getElementById('pac-input');
+           var searchBox = new google.maps.places.SearchBox(input);
+           // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+   
+           // Bias the SearchBox results towards current map's viewport.
+           map.addListener('bounds_changed', function() {
+             searchBox.setBounds(map.getBounds());
+           });
+   
+           var markers = [];
+           // Listen for the event fired when the user selects a prediction and retrieve
+           // more details for that place.
+           searchBox.addListener('places_changed', function() {
+             var places = searchBox.getPlaces();
+   
+             if (places.length == 0) {
+               return;
+             }
+   
+             // Clear out the old markers.
+             markers.forEach(function(marker) {
+               marker.setMap(null);
+             });
+             markers = [];
+   
+             // For each place, get the icon, name and location.
+             var bounds = new google.maps.LatLngBounds();
+             places.forEach(function(place) {
+               if (!place.geometry) {
+                 console.log("Returned place contains no geometry");
+                 return;
+               }
+               var icon = {
+                 url: place.icon,
+                 size: new google.maps.Size(71, 71),
+                 origin: new google.maps.Point(0, 0),
+                 anchor: new google.maps.Point(17, 34),
+                 scaledSize: new google.maps.Size(25, 25)
+               };
+   
+               // Create a marker for each place.
+               markers.push(new google.maps.Marker({
+                 map: map,
+                 icon: icon,
+                 title: place.name,
+                 position: place.geometry.location
+               }));
+   
+               if (place.geometry.viewport) {
+                 // Only geocodes have viewport.
+                 bounds.union(place.geometry.viewport);
+               } else {
+                 bounds.extend(place.geometry.location);
+               }
+             });
+             map.fitBounds(bounds);
+           });
+       loadMarkers()
+    
+   
+   }
+   //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+   
+   // google.maps.event.addDomListener(window, 'load', initMap);
+   
+   // Resources
+       </script>
+      
     <script type="text/javascript" language="javascript" src="geojson.json"></script> 
 
 
