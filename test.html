@@ -766,15 +766,16 @@ var map_filter = function(id_val) {
 
 // after the geojson is loaded, iterate through the map data to create markers
 // and add the pop up (info) windows
-function loadMarkers() {
-  console.log('creating markers')
+function loadMarkers(abc) {
+
+   console.log(abc);
   var infoWindow = new google.maps.InfoWindow()
 // geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps_2/collection.geojson'
-geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store4'
+geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/master/store3'
   $.getJSON(geojson_url, function(result) {
       // Post select to url.
       data = result['features']
-    // console.log(result);
+     console.log(data);
       $.each(data, function(key, val) {
         var point = new google.maps.LatLng(
         parseFloat(val['geometry']['coordinates'][1]),
@@ -787,16 +788,28 @@ geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/m
         var productName = val['properties']['product-name']
         var text = val['properties']['text']
         var mapIcon = val['properties']['map-icon']
+        var zone = val['properties']['zone']
+
+        //console.log(typeof(zone));
 
        // // var image = 'https://cdn1.iconfinder.com/data/icons/vegetables-57/200/Lettuce_Vegetables_food-32.png';
        //   // var image = 'https://cdn3.iconfinder.com/data/icons/food-pyramid-nutrition/512/fruits-32.png';
        //   var image = 'https://cdn0.iconfinder.com/data/icons/fruits-vegetables-5/383/vegetable-fruit-food_12-32.png';
+       if(zone === abc){
+
+            console.log(titleText);
+            $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
+       }
+
+
+       
 
         var marker = new google.maps.Marker({
           position: point,
           title: titleText,
           map: map,
           properties: val['properties'],
+          zone: val['properties']['zone'],
           icon: mapIcon
          });
         // console.log(text);
@@ -804,10 +817,10 @@ geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/m
         //   alert( index + ": " + value );
         // });
 
-        $(document).ready(function() {
-     // alert("document ready occurred!");
-      $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
-        });
+    //     $(document).ready(function() {
+    //  // alert("document ready occurred!");
+    //   $("#test123").append("<div class='col-md-6'> <article class='ct-gallery-item ct-portfolio-item fresh'><div class='ct-portfolio-item-outer'><div class='ct-portfolio-item-media'><figure><a href='single-product.html'><img src="+productImg+" alt="+productName+"/></a></figure></div><div class='ct-portfolio-item-wrapper'><div class='ct-portfolio-item-inner'><section><div class='ct-portfolio-item-title'><a href='single-product.html'><h6><span>" + productName + "</span></h6></a></div><div class='text-center'><a href='single-product.html' class='btn ct-btn-image btn-warning'><span><i class='fa fa-book'></i> Read More</span></a></div></section></div></div></div></article></div>");
+    //     });
 
         var markerInfo = "<div class='d-inline'><span>Seller Name :</span><h6 style='display:inline;padding:10px'>" + titleText + "</h6></div><div class='d-inline'><span>Store Name:</span><h6 style='display:inline;padding:10px'> " + descriptionText + "</h6></div>"
        var productIMG ="<figure><a href='single-product.html'><img src="+productImg+" alt="+productImg+"/></a></figure>"
@@ -829,8 +842,11 @@ geojson_url = 'https://raw.githubusercontent.com/anishbhattacharjee/productmap/m
 
           //   $('#container1').removeClass('expand1');
           // $('#ct-portfolio-item-media').addClass('expand');
+              abc();
         });
-        markers.push(marker)
+        //console.log(marker.zone);
+        markers.push(marker);
+   
         
       });
   });
@@ -851,12 +867,17 @@ function initMap() {
     map_document = document.getElementById('map')
     map = new google.maps.Map(map_document,map_options);
 
-
+ 
 
 
     // Create the search box and link it to the UI element.
+    var abc = document.getElementById('pac-input').value;
+    //console.log(abc);
     var input = document.getElementById('pac-input');
+  
         var searchBox = new google.maps.places.SearchBox(input);
+       //  console.log(input);
+
         // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         // Bias the SearchBox results towards current map's viewport.
@@ -867,8 +888,22 @@ function initMap() {
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
+     
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
+
+        
+          places.forEach( data => {
+            place_name =  data.address_components[0].long_name 
+
+            return place_name;
+          } );
+          
+
+          loadMarkers(place_name);
+
+          //console.log(place_name);
+         
 
           if (places.length == 0) {
             return;
@@ -908,11 +943,14 @@ function initMap() {
               bounds.union(place.geometry.viewport);
             } else {
               bounds.extend(place.geometry.location);
+              console.log(place.geometry.location)
             }
           });
           map.fitBounds(bounds);
         });
-    loadMarkers()
+
+      //  console.log(place_name);
+    loadMarkers();
  
 
 }
